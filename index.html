@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/react.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>React</h1>
+				<h3>Bibioteca de UI do facebook</h3>
+			</section>
+			<section>
+				<h3>Sim, é uma Bibioteca</h3>
+				<span>Uma biblioteca JavaScript declarativa, eficiente e flexível para criar interfaces visuais.</span>
+			</section>
+			<section>
+				<h4>Mas se é apenas uma biblioteca, posso criar aplicações complexas come ele?</h4>
+				<div class="fragment">
+					<h2>Sim, ele possui todo um ecosistema.</h2>
+					<h4>E com ele conseguimos construir uma
+						<span class="fragment highlight-red">aplicação</span> complexa</h4>
+				</div>
+			</section>
+			<!-- <section>
+				<h2>Um dos alicerces para essa possibilidade é que React é
+					<span class="fragment highlight-red">baseado em componentes</span>
+				</h2>
+			</section> -->
+			<section>
+				<h3>Antes de tudo, precisamos conhecer o jsx</h3>
+				<h3>É uma extensão que nos permite escrever html dentro do js</h3>
+			</section>
+			<section>
+				<img width="100%" src="https://media3.giphy.com/media/3KWHzadf2Iq64/giphy-downsized.gif" />
+			</section>
+			<section>
+				<ul>
+					<li>A lógica de renderização é associada a lógica da interface do usuário</li>
+					<li>Em vez de separar artificialmente as tecnologias, colocando marcação e lógica em arquivos separados, o React separa
+						as preocupações com unidades fracamente acopladas chamadas de
+						<span class="fragment highlight-red">“componentes”</span> que contêm ambos</li>
+				</ul>
+			</section>
+			<section>
+				<img src="images/g1_components.png" />
+			</section>
+			<section>
+				<h4>Exemplificando</h4>
+				<pre><code class="hljs" data-trim contenteditable>
+						function ComponenteComProps(props) {
+							return <h1>Olá, {props.name}</h1>;
+						  }
+						  
+						  function App() {
+							return (
+							  <div>
+								<ComponenteComProps name="Ahron" />
+							  </div>
+							);
+						  }
+						  
+						  ReactDOM.render(<App />, document.getElementById('root'))
+				</code></pre>
+			</section>
+			<section>
+				Conceitualmente, são apenas funções que aceitam propriedades
+			</section>
+			<section>
+				Os componentes React podem ser divididos em duas categorias: Stateless (sem estado) e Stateful (com estado).
+			</section>
+			<section>
+				<h4>Stateful component</h4>
+				<pre><code class="hljs" data-trim contenteditable>
+					class Timer extends React.Component {
+						constructor(props) {
+						  super(props);
+						  this.state = { seconds: 0 };
+						}
+						tick() {
+						  this.setState(prevState => ({
+							seconds: prevState.seconds + 1
+						  }));
+						}
+						// Conseguimos interceptar o cliclo de vida do componente
+						componentDidMount() {
+						  this.interval = setInterval(() => this.tick(), 1000);
+						}
+						componentWillUnmount() {
+							clearInterval(this.interval);
+						}
+					}
+					</code></pre>
+			</section>
+			<section>
+				<h4>One-way data binding</h4>
+				<h4>Cada vez que precisamos alterar o estado, precisamos controlar nós mesmos(Através do setSate)</h4>
+				<h4 class="fragment">
+					<span>É bem mais fácil falar dos benefícios do one-way comparando com o two-way data binding</span>
+				</h4>
+			</section>
+			<section>
+				<h2>Virual DOM</h2>
+				Ao invés de fazer alterações diretamente no DOM (que são lentas) elas são feitas no Virtual DOM (rápidas). E somente quando
+				realmente necessário, essas alterações são repassadas para o DOM original.
+			</section>
+			<section>
+				<h2>Estmos prontos?</h2>
+				<h4 class="fragment">Se souber Webpack e ES6, SIM</h4>
+			</section>
+			<section>
+				<img src="images/learn_js.png">
+			</section>
+			<section>
+				<img src="images/webpack.png">
+			</section>
+			<section>
+				<h4>Preciso usar redux?</h4>
+				<div>
+					<h4>Segundo o criador, não a menos que seja necessário</h4>
+					<img src="images/should_redux.png">
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>
