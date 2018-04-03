@@ -31,13 +31,13 @@
 				<h3>Bibioteca de UI do facebook</h3>
 			</section>
 			<section>
-				<h3>Sim, é uma Bibioteca</h3>
+				<h3>Sim, é uma Biblioteca</h3>
 				<span>Uma biblioteca JavaScript declarativa, eficiente e flexível para criar interfaces visuais.</span>
 			</section>
 			<section>
-				<h4>Mas se é apenas uma biblioteca, posso criar aplicações complexas come ele?</h4>
+				<h4>Mas se é apenas uma biblioteca de UI, posso criar aplicações complexas com ele?</h4>
 				<div class="fragment">
-					<h2>Sim, ele possui todo um ecosistema.</h2>
+					<h2>Sim, ele possui todo um ecosistema</h2>
 					<h4>E com ele conseguimos construir uma
 						<span class="fragment highlight-red">aplicação</span> complexa</h4>
 				</div>
@@ -66,51 +66,18 @@
 				<img src="images/g1_components.png" />
 			</section>
 			<section>
-				<h4>Exemplificando</h4>
-				<pre><code class="hljs" data-trim contenteditable>
-						function ComponenteComProps(props) {
-							return <h1>Olá, {props.name}</h1>;
-						  }
-						  
-						  function App() {
-							return (
-							  <div>
-								<ComponenteComProps name="Ahron" />
-							  </div>
-							);
-						  }
-						  
-						  ReactDOM.render(<App />, document.getElementById('root'))
-				</code></pre>
-			</section>
-			<section>
 				Conceitualmente, são apenas funções que aceitam propriedades
 			</section>
 			<section>
 				Os componentes React podem ser divididos em duas categorias: Stateless (sem estado) e Stateful (com estado).
 			</section>
 			<section>
+				<h4>Stateless component</h4>
+				<img src="images/components-props.png" />
+			</section>
+			<section>
 				<h4>Stateful component</h4>
-				<pre><code class="hljs" data-trim contenteditable>
-					class Timer extends React.Component {
-						constructor(props) {
-						  super(props);
-						  this.state = { seconds: 0 };
-						}
-						tick() {
-						  this.setState(prevState => ({
-							seconds: prevState.seconds + 1
-						  }));
-						}
-						// Conseguimos interceptar o cliclo de vida do componente
-						componentDidMount() {
-						  this.interval = setInterval(() => this.tick(), 1000);
-						}
-						componentWillUnmount() {
-							clearInterval(this.interval);
-						}
-					}
-					</code></pre>
+				<img src="images/component-statefull.png" />
 			</section>
 			<section>
 				<h4>One-way data binding</h4>
@@ -126,13 +93,35 @@
 			</section>
 			<section>
 				<h2>Estmos prontos?</h2>
-				<h4 class="fragment">Se souber Webpack e ES6, SIM</h4>
+				<h4 class="fragment">Se souber Javascript, SIM</h4>
 			</section>
 			<section>
 				<img src="images/learn_js.png">
 			</section>
 			<section>
+				<h2>O que mais tem no seu ecosistema?</h2>
+				<h4 class="fragment">Muitas bibliotecas</h4>
+			</section>
+			<section>
+				<ul>
+					<li>React Router</li>
+					<li>Axios</li>
+					<li>Reactstrap</li>
+					<li>Redux</li>
+					<li class="fragment">ops, surgiu mais uma lib js</li>
+				</ul>
+			</section>
+			<section>
+				<img src="images/babel.png">
+			</section>
+			<section>
 				<img src="images/webpack.png">
+			</section>
+			<section>
+				<h2>Sobre o Redux</h2>
+				<h4>Todo o estado da aplicação é mantido em apenas um único objeto chamado de Store</h4>
+				<h4>O estado da aplicação é inalterável, a unica maneira de afeta-lo é emitindo uma Action com a mudança</h4>
+				<h4>Reducers recebem as Actions emitidas e aplicam-nas ao estado. Sempre retornando um novo estado.</h4>
 			</section>
 			<section>
 				<h4>Preciso usar redux?</h4>
@@ -140,6 +129,13 @@
 					<h4>Segundo o criador, não a menos que seja necessário</h4>
 					<img src="images/should_redux.png">
 				</div>
+			</section>
+			<section>
+				<h2>Agora sim o/</h2>
+				<h4>Mãos à obra</h4>
+			</section>
+			<section>
+				<img src="images/create-react-app.svg">
 			</section>
 		</div>
 	</div>
